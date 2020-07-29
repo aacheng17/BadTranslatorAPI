@@ -15,7 +15,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aacheng17/BadTranslator"
+    "url": "https://github.com/aacheng17/BadTranslatorAPI"
   },
   "dependencies": {
     "cors": "^2.8.5",
