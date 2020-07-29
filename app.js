@@ -37,7 +37,7 @@ app.get("/", (req, res) => res.send("Hello World!"));
 app.get("/api/search", async (req, res) => {
   try {
     var s = req.query.q;
-    console.log("Receving request string:");
+    console.log("Receving request string: " + s);
     var i = 0;
     for (i=0;i<numTranslations;i++) {
       var lang = (i == numTranslations-1) ? 'en' : LANGS[Math.floor(Math.random() * LANGS.length)];
