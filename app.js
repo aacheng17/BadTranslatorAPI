@@ -40,6 +40,7 @@ app.get("/api/search", async (req, res) => {
     var i = 0;
     for (i=0;i<numTranslations;i++) {
       var lang = (i == numTranslations-1) ? 'en' : LANGS[Math.floor(Math.random() * LANGS.length)];
+      console.log('https://translation.googleapis.com/language/translate/v2?target='+lang+'&key='+process.env.GOOGLE_API_KEY+'&q='+encodeURI(s));
       var response = await fetch(
         'https://translation.googleapis.com/language/translate/v2?target='+lang+'&key='+process.env.GOOGLE_API_KEY+'&q='+encodeURI(s)
       );
