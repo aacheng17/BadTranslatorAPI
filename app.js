@@ -17,7 +17,7 @@ const LANGS = [ 'af', 'sq', 'am', 'ar',  'hy',  'az', 'eu',
                 'su',    'sw', 'sv', 'tg', 'ta',  'te',  'th', 'tr',
                 'uk',    'ur', 'uz', 'vi', 'cy',  'xh',  'yi', 'zu' ];
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const numTranslations = 10;
 
 // Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
