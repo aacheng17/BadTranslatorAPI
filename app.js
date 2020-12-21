@@ -37,18 +37,18 @@ app.get("/", (req, res) => res.send("Hello World!"));
 app.get("/api/search", async (req, res) => {
   try {
     var s = req.query.q;
-    console.log("Receving request string: " + s);
+    console.log(`Receving request string: ${s}`);
     var i = 0;
     for (i=0;i<numTranslations;i++) {
       var lang = (i == numTranslations-1) ? 'en' : LANGS[Math.floor(Math.random() * LANGS.length)];
-      console.log('https://translation.googleapis.com/language/translate/v2?target='+lang+'&key='+process.env.GOOGLE_API_KEY+'&q='+encodeURI(s));
       var response = await fetch(
         'https://translation.googleapis.com/language/translate/v2?target='+lang+'&key='+process.env.GOOGLE_API_KEY+'&q='+encodeURI(s)
       );
       var json = await response.text();
       s = JSON.parse(json).data.translations[0].translatedText;
+      s = s.replace(/&#39;/g,"'");
     }
-
+    console.log(`Sending response string: ${s}\n`);
     return res.json({
       success: true,
       "results": s,
