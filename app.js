@@ -33,7 +33,7 @@ app.use(cors());
 // should show 'Hello World!' in the browser
 app.get("/", (req, res) => res.send("Hello World!"));
 
-// Main route
+// Main route 
 app.get("/api/search", async (req, res) => {
   try {
     var s = req.query.q;
